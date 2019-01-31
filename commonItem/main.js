@@ -10,8 +10,10 @@ array2 = ['f','c']
 should return false
 
 */
-// Lets try naive brute force approach - O(n*b) not the best approach
-// if the size of two nested loops would have same it would be n^2
+// Lets try naive brute force approach
+// Time Complexity = O(a*b)
+// Space Complexity = O(1)
+// This solution takes more time and memory but less space
 function findCommon(arr1, arr2) {
   for (let i = 0; i < arr1.length; i++) {
     for (let j = 0; j < arr2.length; j++) {
@@ -25,9 +27,12 @@ function findCommon(arr1, arr2) {
 
 array1 = ['a', 'b', 'f', 'd', '12'];
 array2 = ['g', 'c', 'h', 'd', '3', '1'];
-console.log(findCommon(array1, array2));
+findCommon(array1, array2);
 
-// Better Way using - O(a+b)
+// Better Way using Hash Table
+// Time Complexity = O(a+b)
+// Space Complexity = O(a)
+// This solution takes less time and memory but more space
 const containItems = (item1, item2 = 'none') => {
   // loop through first array and create object where properties == array items
   const map = {};
@@ -46,4 +51,6 @@ const containItems = (item1, item2 = 'none') => {
   return false;
 };
 
-console.log(containItems(array1, array2));
+const containItemsInModern = (arr1, arr2) =>
+  arr1.some(item => arr2.includes(item));
+console.log(containItemsInModern(array1, array2));
