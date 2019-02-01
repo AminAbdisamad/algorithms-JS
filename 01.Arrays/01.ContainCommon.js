@@ -22,6 +22,8 @@ function findCommon(arr1, arr2) {
       }
     }
   }
+
+  console.log(`timeComplexity =  ${t2 - t1} `);
   return false;
 }
 
